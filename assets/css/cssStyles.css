@@ -63,10 +63,11 @@
 .textWindowPixelated {
   box-sizing: border-box;                       /* padding/border wliczone w szerokość */
   margin: 0 auto;
-  width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
   max-width: clamp(240px, 60%, 720px);          /* responsywny limit szerokości */
   padding-block: clamp(6px, 1.2vh, 6px);       /* mniejszy padding pionowy (top/bottom) */
-  padding-inline: clamp(10px, 3vw, 20px);       /* poziomy padding */
+  padding-inline: clamp(10px, 3vw, 10px);       /* poziomy padding */
   line-height: 1.35;                            /* zmniejsza odstęp między wierszami */
   border: 3px solid #fff;
   background-color: #000;
@@ -102,20 +103,8 @@
 /*wersja na telefon*/
 @media (max-width: 600px) {
     .textWindowPixelated{
-        box-sizing: border-box;                       /* padding/border wliczone w szerokość */
-        margin: 0 auto;
-        width: 100%;
-        max-width: clamp(240px, 60%, 720px);          /* responsywny limit szerokości */
-        padding-block: clamp(6px, 1.2vh, 6px);       /* mniejszy padding pionowy (top/bottom) */
-        padding-inline: clamp(10px, 3vw, 20px);       /* poziomy padding */
-        line-height: 1.35;                            /* zmniejsza odstęp między wierszami */
-        border: 3px solid #fff;
-        background-color: #000;
-        color: #fff;
-        text-align: center;
-        line-height: 1.35;  
-        font-family: ariw9500, Arial, sans-serif;
-        font-size: clamp(14px, 2vw, 16px);
+        padding-inline: clamp(10px, 3vw, 10px);       /* poziomy padding */               
+        font-size: clamp(11px, 2vw, 16px);
     }
 
     .centeredText{
@@ -138,4 +127,32 @@
     width: 40%;
     height: auto;
     }
+}
+
+
+
+@keyframes typing {
+    from { width: 0%; opacity: 1}
+    to { width: 100%; opacity: 1}
+}
+
+@keyframes slideUp {
+    0%   { transform: translateY(40px); opacity: 0; }
+    25%  { transform: translateY(30px); opacity: 0.3; }
+    50%  { transform: translateY(20px); opacity: 0.5; }
+    75%  { transform: translateY(10px); opacity: 0.7; }
+    100% { transform: translateY(0);    opacity: 1; }
+}
+
+
+.typingAnimation {
+    max-width: fit-content;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    animation:  typing 1.5s steps(45, end) forwards;
+}
+
+.dialogBox{
+    animation: slideUp 0.4s steps(2) forwards;
 }
