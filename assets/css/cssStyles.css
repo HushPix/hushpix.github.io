@@ -61,12 +61,42 @@
 }
 
 .textWindowPixelated{
-    font-size: 18px;
-    min-width: 200px;
-    width: 40%;
+    font-size: 16px;      
+    min-width: 150px;     
+    width: 60%;          
     margin: 0 auto;
-    padding: 10px;
-    border: 4px solid white;
+    padding: 8px;         
+    border: 3px solid white;
     background-color: black;
     image-rendering: pixelated;
+}
+
+/*wersja na telefon*/
+@media (max-width: 600px) {
+    .textWindowPixelated{
+        font-size: 18px;
+        min-width: 200px;
+        width: 40%;
+        margin: 0 auto;
+        padding: 10px;
+        border: 4px solid white;
+        background-color: black;
+        image-rendering: pixelated;
+    }
+
+    .centeredText{
+        text-align: center;
+        color: white;
+        font-family: ariw9500, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 11px;
+    }
+
+    .bigHeader{
+        font-family: ariw9500, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        text-align: center;
+        margin-top: 20px;
+}
 }
