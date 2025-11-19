@@ -1,0 +1,44 @@
+/*AriRegular*/
+@font-face {
+    font-family: ariw9500;
+    src: url(/assets/fonts/ari-w9500.woff2);
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*AriBold*/
+@font-face {
+    font-family: ariw9500;
+    src: url(/assets/fonts/ari-w9500-bold.woff2);
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+.gradientBg {
+    margin: 0;
+    min-height:100vh;
+    background-image: linear-gradient(to bottom, red, yellow);
+}
+
+.bigHeader{
+    font-family: ariw9500, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 33px;
+}
+
+.blackOutline{
+    --outline-size: 4px;
+    --outline-color: black;
+    color: white;
+    text-shadow:
+        var(--outline-size) 0 var(--outline-color),
+        calc(var(--outline-size) * -1) 0 var(--outline-color),
+        0 var(--outline-size) var(--outline-color),
+        0 calc(var(--outline-size) * -1) var(--outline-color),
+        var(--outline-size) var(--outline-size) var(--outline-color),
+        calc(var(--outline-size) * -1) var(--outline-size) var(--outline-color),
+        var(--outline-size) calc(var(--outline-size) * -1) var(--outline-color),
+        calc(var(--outline-size) * -1) calc(var(--outline-size) * -1) var(--outline-color);  
+}
