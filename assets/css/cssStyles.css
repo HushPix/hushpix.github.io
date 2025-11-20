@@ -16,6 +16,11 @@
     font-display: swap;
 }
 
+/* make sizing predictable so padding/border don't expand boxes */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+
 .gradientBg {
     --color-1: #640D5F;
     --color-2: #B12C00;
@@ -68,7 +73,8 @@
   word-break: break-word;
   max-width: clamp(240px, 60%, 720px);         
   padding-block: clamp(6px, 1.2vh, 6px);       
-  padding-inline: clamp(10px, 3vw, 10px);       
+  padding-inline: clamp(10px, 3vw, 10px);     
+  max-inline-size:100% ;
   line-height: 1.35;                            
   background-color: #000;
   color: #fff;
@@ -79,6 +85,18 @@
   border: #ffffff 4px solid;
 }
 
+.tileSetWindow{
+    align-self: flex-start;
+    width: 100%;
+    image-rendering: pixelated;
+    padding: 16px;
+    border-width: 64px;
+    border-style: solid;
+    border-image-source: url('/assets/images/Tiles/BasicMessageBox4x.png');
+    border-image-slice: 64 fill;
+    border-image-repeat: stretch;
+}
+
 .textWindowPixelated.textWindowAnimated{
     max-width: fit-content;
     animation: slideUp 0.4s steps(2) forwards;
@@ -86,7 +104,7 @@
 
 
 .divVisuals{
-    border: pink, 4px dashed
+    border: pink, 4px dashed;
 }
 
 .scaledImage{
