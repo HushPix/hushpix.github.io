@@ -158,6 +158,10 @@ html {
     height: auto;
 }
 
+.scaledImage.isPixelArt img {
+    image-rendering: pixelated;
+}
+
 .centeredBlock {
     display: flex;
     align-items: center;
@@ -273,5 +277,9 @@ html {
 
 .slideInAnim {
     animation: slideUp 0.4s steps(2) forwards;
+}
+
+.slideOutAnim {
+    animation: slideUp 0.4s steps(2) reverse backwards;
 }
 
