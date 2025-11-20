@@ -1,3 +1,11 @@
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* --------------------------------
+        FONTS                          
+-------------------------------- */
+
 /*AriRegular*/
 @font-face {
     font-family: ariw9500;
@@ -17,20 +25,54 @@
 }
 
 /* make sizing predictable so padding/border don't expand boxes */
-html { box-sizing: border-box; }
-*, *::before, *::after { box-sizing: inherit; }
+html {
+    box-sizing: border-box;
+}
 
+/* --------------------------------
+        Components                       
+-------------------------------- */
 
-.gradientBg {
+.linearGradientBg {
     --color-1: #640D5F;
     --color-2: #B12C00;
     --color-3: #EB5B00;
-    margin: 0;
     min-height: 100vh;
-    background-image: linear-gradient(to top, var(--color-1), var(--color-2), var(--color-3));
+    background: repeating-linear-gradient(to top, var(--color-1), var(--color-2), var(--color-3), var(--color-1));
 }
 
-.bigHeader{
+.sharpGradientBG{
+    --color-1: #e3296b;
+    --color-2: #c30053;
+    --color-3: #a4003c;
+    --color-4:#850026;
+    --color-5:#660011;
+    
+    min-height: 100vh;
+    background: linear-gradient(
+        to top, 
+        var(--color-1) 0%, var(--color-1) 11.11%,
+        var(--color-2) 11.11%, var(--color-2) 22.22%,
+        var(--color-3) 22.22%, var(--color-3) 33.33%,
+        var(--color-4) 33.33%, var(--color-4) 44.44%,
+        var(--color-5) 44.44%, var(--color-5) 55.55%,
+        var(--color-4) 55.55%, var(--color-4) 66.66%,
+        var(--color-3) 66.66%, var(--color-3) 77.77%,
+        var(--color-2) 77.77%, var(--color-2) 88.88%,
+        var(--color-1) 88.88%, var(--color-1) 100%
+        );
+}
+
+.animatedGradientVertical{
+    background-size: 100% 200%;
+    animation-name: animateGradientSlideVertical;
+    animation-direction: normal;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.bigHeader {
     font-family: ariw9500, Arial, sans-serif;
     font-weight: 700;
     font-size: 33px;
@@ -38,7 +80,7 @@ html { box-sizing: border-box; }
     margin-top: 20px;
 }
 
-.blackOutline{
+.blackOutline {
     --outline-size: 4px;
     --outline-color: black;
     color: white;
@@ -50,16 +92,16 @@ html { box-sizing: border-box; }
         var(--outline-size) var(--outline-size) var(--outline-color),
         calc(var(--outline-size) * -1) var(--outline-size) var(--outline-color),
         var(--outline-size) calc(var(--outline-size) * -1) var(--outline-color),
-        calc(var(--outline-size) * -1) calc(var(--outline-size) * -1) var(--outline-color);  
+        calc(var(--outline-size) * -1) calc(var(--outline-size) * -1) var(--outline-color);
 }
 
-.imageBorder{
- border: #ffffff 4px solid;
+.imageBorder {
+    border: #ffffff 4px solid;
 }
 
 
 
-.pixelWhiteFont{
+.pixelWhiteFont {
     color: white;
     font-family: ariw9500, Arial, sans-serif;
     font-weight: 400;
@@ -67,29 +109,27 @@ html { box-sizing: border-box; }
 }
 
 .textWindowPixelated {
-  box-sizing: border-box;                       /* padding/border wliczone w szerokość */
-  margin: 0 auto;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  max-width: clamp(240px, 60%, 720px);         
-  padding-block: clamp(6px, 1.2vh, 6px);       
-  padding-inline: clamp(10px, 3vw, 10px);     
-  max-inline-size:100% ;
-  line-height: 1.35;                            
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  line-height: 1.35;  
-  font-family: ariw9500, Arial, sans-serif;
-  font-size: clamp(14px, 2vw, 16px);
-  border: #ffffff 4px solid;
+    box-sizing: border-box;
+    /* padding/border wliczone w szerokość */
+    margin: 0 auto;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    max-width: clamp(240px, 60%, 720px);
+    padding-block: clamp(6px, 1.2vh, 6px);
+    padding-inline: clamp(10px, 3vw, 10px);
+    max-inline-size: 100%;
+    line-height: 1.35;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    line-height: 1.35;
+    font-family: ariw9500, Arial, sans-serif;
+    font-size: clamp(14px, 2vw, 16px);
+    border: #ffffff 4px solid;
 }
 
-.tileSetWindow{
-    align-self: flex-start;
+.tileSetWindow {
     width: 100%;
-    image-rendering: pixelated;
-    padding: 16px;
     border-width: 64px;
     border-style: solid;
     border-image-source: url('/assets/images/Tiles/BasicMessageBox4x.png');
@@ -97,41 +137,41 @@ html { box-sizing: border-box; }
     border-image-repeat: stretch;
 }
 
-.textWindowPixelated.textWindowAnimated{
+.textWindowPixelated.textWindowAnimated {
     max-width: fit-content;
     animation: slideUp 0.4s steps(2) forwards;
 }
 
 
-.divVisuals{
+.divVisuals {
     border: pink, 4px dashed;
 }
 
-.scaledImage{
+.scaledImage {
     width: 50%;
-    height:auto;
+    height: auto;
 }
 
-.scaledImage img{
+.scaledImage img {
     display: block;
     width: 100%;
     height: auto;
 }
 
-.centeredBlock{
+.centeredBlock {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.flexVertical{
-    flex-direction:column;
+.flexVertical {
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.footer{
+.footer {
     width: 100%;
     position: fixed;
     bottom: 0;
@@ -140,12 +180,13 @@ html { box-sizing: border-box; }
 
 /*wersja na telefon*/
 @media (max-width: 600px) {
-    .textWindowPixelated{
-        padding-inline: clamp(10px, 3vw, 10px);       /* poziomy padding */               
+    .textWindowPixelated {
+        padding-inline: clamp(10px, 3vw, 10px);
+        /* poziomy padding */
         font-size: clamp(11px, 2vw, 16px);
     }
 
-    .centeredText{
+    .centeredText {
         text-align: center;
         color: white;
         font-family: ariw9500, Arial, sans-serif;
@@ -153,7 +194,7 @@ html { box-sizing: border-box; }
         font-size: 11px;
     }
 
-    .bigHeader{
+    .bigHeader {
         font-family: ariw9500, Arial, sans-serif;
         font-weight: 700;
         font-size: 22px;
@@ -161,12 +202,12 @@ html { box-sizing: border-box; }
         margin-top: 20px;
     }
 
-    .scaledImage{
-    width: 40%;
-    height: auto;
+    .scaledImage {
+        width: 40%;
+        height: auto;
     }
 
-    .footer{
+    .footer {
         font-size: 11;
     }
 }
@@ -174,16 +215,51 @@ html { box-sizing: border-box; }
 
 
 @keyframes typing {
-    from { width: 0%; opacity: 1}
-    to { width: 100%; opacity: 1}
+    from {
+        width: 0%;
+        opacity: 1
+    }
+
+    to {
+        width: 100%;
+        opacity: 1
+    }
 }
 
 @keyframes slideUp {
-    0%   { transform: translateY(40px); opacity: 0; }
-    25%  { transform: translateY(30px); opacity: 0.3; }
-    50%  { transform: translateY(20px); opacity: 0.5; }
-    75%  { transform: translateY(10px); opacity: 0.7; }
-    100% { transform: translateY(0);    opacity: 1; }
+    0% {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    25% {
+        transform: translateY(30px);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translateY(20px);
+        opacity: 0.5;
+    }
+
+    75% {
+        transform: translateY(10px);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes animateGradientSlideVertical {
+    0% {
+		background-position: 0% 0%;
+	}
+	100% {
+		background-position: 0% 200%;
+	}
 }
 
 
@@ -192,9 +268,10 @@ html { box-sizing: border-box; }
     overflow: hidden;
     white-space: nowrap;
     opacity: 0;
-    animation:  typing 1.5s steps(45, end) forwards;
+    animation: typing 1.5s steps(45, end) forwards;
 }
 
-.slideInAnim{
+.slideInAnim {
     animation: slideUp 0.4s steps(2) forwards;
 }
+
